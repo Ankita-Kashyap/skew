@@ -32,6 +32,15 @@ if( !email || !password)
 //todo call api and submit the form
 console.log(email,password)
   };
+  const handleOnResetSubmit = e => {
+    e.preventDefault()
+if( !email)
+{
+  return alert("Enter email")
+}
+//todo call api and submit the form
+console.log(email,password)
+  };
 const formSwitcher = (frmType) =>{
   setFrmLoad(frmType);
 }
@@ -52,7 +61,7 @@ const formSwitcher = (frmType) =>{
     />)}
    {frmLoad === "rest"&& (<ResetPassword
      handleOnChange = {handleOnChange} 
-    handleOnSubmit = {handleOnSubmit}
+    handleOnResetSubmit = {handleOnResetSubmit}
     formSwitcher = {formSwitcher}
     email = {email}      
     
