@@ -1,18 +1,22 @@
 import React from 'react'
+import  PropTypes  from 'prop-types'
 import {Container,Row,Col,Form,Button} from 'react-bootstrap'
-export const LoginForm = () => {
+export const LoginForm = ({handleOnChange,handleOnSubmit,formSwitcher,email,pass}) => {
   return (
     <Container>
         <Row>
             <Col>
             <h1 className='text-info text-center'>Client Login</h1>
             <hr/>
-            <Form>
+            <Form autoComplete='off' onSubmit = {handleOnSubmit}>
             <Form.Group>
             <Form.Label>Email Address</Form.Label>
             <Form.Control
                 type = "email"
                 name = "email"
+                value ={email}
+
+                onChange={handleOnChange} // it occurs when value of the function has been changed
                 placeholder = "Enter Email"
                 required
             />
@@ -22,6 +26,9 @@ export const LoginForm = () => {
             <Form.Control
                 type = "password"
                 name = "password"
+                value ={pass}
+
+                onChange={handleOnChange}
                 placeholder = "password"
                 required
             />
@@ -34,9 +41,17 @@ export const LoginForm = () => {
         </Row>
         <Row>
             <Col>
-            <a href='#!'>Forget Password</a>
+            <a href='#!' onClick={() =>formSwitcher('rest')}>Forget Password</a>
             </Col>
         </Row>
     </Container>
   )
 }
+LoginForm.propTypes = {
+    handleOnchange: PropTypes.func.isRequired,
+    handleOnSubmit : PropTypes.func.isRequired,
+    formSwitcher :PropTypes.func.isRequired,
+    email: PropTypes.string.isRequired,
+    pass: PropTypes.string.isRequired
+}
+//doesnt crash the application coz of different data type
