@@ -59,7 +59,7 @@ const formSwitcher = (frmType) =>{
     email = {email}      
     pass = {password}
     />)}
-   {frmLoad === "rest"&& (<ResetPassword
+   {frmLoad === "rest" && (<ResetPassword
      handleOnChange = {handleOnChange} 
     handleOnResetSubmit = {handleOnResetSubmit}
     formSwitcher = {formSwitcher}
